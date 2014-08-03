@@ -1,15 +1,20 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="myApp">
     <head>
         <title></title>
 
     </head>
     <body>
         <div ng-controller="TextController">
-            <p>
-                {{messages.someText}}
+            <p ng-bind="someText.message">
             </p>
         </div>
+
+        <form ng-controller="StartUpController">
+            見込み: <input ng-change="computeNeeded()" ng-model="funding.startingEstimate">
+            推奨額: {{funding.needed}}
+        </form>
+
         <script src="static/js/bower_components/angularjs/angular.min.js" charset="utf-8"></script>
         <script src="static/js/controllers.js" charset="utf-8"></script>
     </body>

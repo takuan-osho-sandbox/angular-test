@@ -1,6 +1,15 @@
-var messages = {};
-messages.someText = "旅の始まりです";
+var myAppModule = angular.module("myApp", []);
 
-function TextController($scope) {
-    $scope.messages = messages;
-}
+myAppModule.controller("TextController", function($scope) {
+    var someText = {};
+    someText.message = "旅の始まりです";
+    $scope.someText = someText;
+})
+
+myAppModule.controller("StartUpController", function($scope) {
+    $scope.funding = {startingEstimate: 0};
+
+    $scope.computeNeeded = function() {
+        $scope.funding.needed = $scope.funding.startingEstimate * 10;
+    };
+})
