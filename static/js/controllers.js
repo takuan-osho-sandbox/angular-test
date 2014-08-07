@@ -21,4 +21,8 @@ myAppModule.controller("StudentListController", function($scope) {
                     {name: "ジャック・スプラット", id: 2},
                     {name: "ジル・ヒル", id:3}];
     $scope.students = students;
+
+    $scope.insertTom = function() {
+        $scope.students.splice(1, 0, {name: "トム・サム", id:4});
+    }
 })
