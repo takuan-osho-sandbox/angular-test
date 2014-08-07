@@ -15,3 +15,10 @@ myAppModule.controller("StartUpController", function($scope) {
         window.alert("もっと顧客を増やしてからにしてください")
     }
 })
+
+myAppModule.controller("StudentListController", function($scope) {
+    var students = [{name: "メアリー・コントラリー", id:"1"},
+                    {name: "ジャック・スプラット", id: 2},
+                    {name: "ジル・ヒル", id:3}];
+    $scope.students = students;
+})

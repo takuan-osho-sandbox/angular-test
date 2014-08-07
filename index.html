@@ -15,6 +15,13 @@
             推奨額: {{needed}}
             <button>出資を依頼する！</button>
         </form>
+
+        <ul ng-controller="StudentListController">
+            <li ng-repeat="student in students">
+                <a href="/student/view/{{student.id}}">{{student.name}}</a>
+            </li>
+        </ul>
+
         <script src="static/js/bower_components/angularjs/angular.min.js" charset="utf-8"></script>
         <script src="static/js/controllers.js" charset="utf-8"></script>
     </body>
