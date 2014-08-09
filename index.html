@@ -2,7 +2,7 @@
 <html ng-app="myApp">
     <head>
         <title></title>
-
+        <link rel="stylesheet" href="static/css/style.css" media="screen" title="no title" charset="utf-8">
     </head>
     <body>
         <div ng-controller="TextController">
@@ -12,19 +12,35 @@
 
         <form ng-submit="requestFunding()" ng-controller="StartUpController">
             見込み: <input ng-change="computeNeeded()" ng-model="startingEstimate">
-            推奨額: {{needed}}
+            推奨額: <div ng-bind="needed"></div>
             <button>出資を依頼する！</button>
         </form>
 
         <div ng-controller="StudentListController">
             <ul>
                 <li ng-repeat="student in students">
-                    <a href="/student/view/{{student.id}}">{{student.name}}</a>
+                    <a href="/student/view/{{student.id}}" ng-bind="student.name"></a>
                 </li>
             </ul>
             <button ng-click="insertTom()">追加</button>
         </div>
 
+        <table ng-controller="AlbumController">
+            <tr ng-repeat="track in album">
+                <td ng-bind="$index + 1"></td>
+                <td ng-bind="track.name"></td>
+                <td ng-bind="track.duration"></td>
+            </tr>
+        </table>
+
+        <div ng-controller="DeathrayMenuController">
+            <button ng-click="toggleMenu()">メニューをトグル</button>
+            <ul ng-show="menuState.show">
+                <li ng-click="stun()" class="menu-disabled-{{isDisabled}}">気絶</li>
+                <li ng-click="disintegrate()">崩壊</li>
+                <li ng-click="erase()">歴史から消去</li>
+            </ul>
+        </div>
 
         <script src="static/js/bower_components/angularjs/angular.min.js" charset="utf-8"></script>
         <script src="static/js/controllers.js" charset="utf-8"></script>
