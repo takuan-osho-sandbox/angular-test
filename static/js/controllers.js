@@ -4,7 +4,7 @@ myAppModule.controller("TextController", function($scope) {
     var someText = {};
     someText.message = "旅の始まりです";
     $scope.someText = someText;
-})
+});
 
 myAppModule.controller("StartUpController", function($scope) {
     $scope.computeNeeded = function() {
@@ -14,7 +14,7 @@ myAppModule.controller("StartUpController", function($scope) {
     $scope.requestFunding = function() {
         window.alert("もっと顧客を増やしてからにしてください")
     }
-})
+});
 
 myAppModule.controller("StudentListController", function($scope) {
     var students = [{name: "メアリー・コントラリー", id:"1"},
@@ -25,7 +25,7 @@ myAppModule.controller("StudentListController", function($scope) {
     $scope.insertTom = function() {
         $scope.students.splice(1, 0, {name: "トム・サム", id:4});
     }
-})
+});
 
 myAppModule.controller("AlbumController", function($scope) {
     var album = [
@@ -35,7 +35,7 @@ myAppModule.controller("AlbumController", function($scope) {
     ];
 
     $scope.album = album;
-})
+});
 
 myAppModule.controller("DeathrayMenuController", function($scope) {
     $scope.menuState = {show: false};
@@ -48,4 +48,33 @@ myAppModule.controller("DeathrayMenuController", function($scope) {
     $scope.stun = function() {
         $scope.isDisabled = true;
     }
+});
+
+myAppModule.controller("HeaderController", function($scope) {
+    $scope.isError = false;
+    $scope.isWarning = false;
+
+    $scope.showError = function() {
+        $scope.messageText = "エラー発生！";
+        $scope.isError = true;
+        $scope.isWarning = false;
+    }
+
+    $scope.showWarning = function() {
+        $scope.messageText = "単なる警告です。操作を続けてください";
+        $scope.isWarning = true;
+        $scope.isError = false;
+    }
+})
+
+myAppModule.controller("RestaurantTableController", function($scope) {
+    $scope.directory = [
+        {name: "ハンサム・へファー", cuisine: "BBQ"},
+        {name: "グリーンズ・グリーン・グリーンズ", cuisine: "サラダ"},
+        {name: "ハウス・オブ・ファイン・フィッシュ", cuisine: "シーフード"}
+    ];
+
+    $scope.selectRestaurant = function(row) {
+        $scope.selectedRow = row;
+    };
 })

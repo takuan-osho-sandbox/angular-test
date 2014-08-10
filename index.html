@@ -42,6 +42,19 @@
             </ul>
         </div>
 
+        <div ng-controller="HeaderController">
+            <div ng-class="{error: isError, warning: isWarning}">{{messageText}}</div>
+            <button ng-click="showError()">エラーを発生させる</button>
+            <button ng-click="showWarning()">警告を発生させる</button>
+        </div>
+
+        <table ng-controller="RestaurantTableController">
+               <tr ng-repeat="restaurant in directory" ng-click="selectRestaurant($index)" ng-class="{selected: $index==selectedRow}">
+                   <td>{{restaurant.name}}</td>
+                   <td>{{restaurant.cuisine}}</td>
+               </tr>
+        </table>
+
         <script src="static/js/bower_components/angularjs/angular.min.js" charset="utf-8"></script>
         <script src="static/js/controllers.js" charset="utf-8"></script>
     </body>
