@@ -64,9 +64,9 @@
                 <span>{{item.price | currency}}</span>
                 <span>{{item.price * item.quantity | currency}}</span>
             </div>
-            <div>小計: {{totalCart() | currency}}</div>
+            <div>小計: {{bill.total | currency}}</div>
             <div>値引き: {{bill.discount | currency}}</div>
-            <div>合計: {{subtotal() | currency}}</div>
+            <div>合計: {{bill.subtotal | currency}}</div>
         </div>
 
         <script src="static/js/bower_components/angularjs/angular.min.js" charset="utf-8"></script>
